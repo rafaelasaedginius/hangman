@@ -1,4 +1,4 @@
-#include <Stdio.h>
+#include <stdio.h>
 #include <string.h>
 #include "hangman.h"
 
