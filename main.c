@@ -19,5 +19,7 @@ int main(){
         }else if(strcmp(choice, "LEVEL EDITOR") == 0){
             level_editor();
         }
+        
+        scanf("%s", choice);
     }
 }
