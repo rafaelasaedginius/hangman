@@ -1,78 +1,149 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 char *chooselang(void){
-    char lang[10];
+    char *lang = malloc(10);
     scanf("%s", lang);
     return lang;
 }
-FILE *wordbank_very_easy(void){
+char **wordbank_very_easy(void){
     FILE *fp = fopen("VE.txt", "r");
     if(fp == NULL){
         printf("Word Bank is Missing\n");
     }
-    return fp;
+    int i = 0;
+    char s[51];
+    char **sentences = malloc(sizeof(char *) * 100);
+    while(fgets(s, sizeof(s), fp) != NULL){
+        sentences[i++] = strdup(s);
+    }
+    sentences[i] = NULL;
+    return sentences;
 }
-FILE *wordbank_easy(void){
+char **wordbank_easy(void){
     FILE *fp = fopen("E.txt", "r");
     if(fp == NULL){
         printf("Word Bank is Missing\n");
     }
-    return fp;
+    int i = 0;
+    char s[51];
+    char **sentences = malloc(sizeof(char *) * 100);
+    while(fgets(s, sizeof(s), fp) != NULL){
+        sentences[i++] = strdup(s);
+    }
+    sentences[i] = NULL;
+    return sentences;
 }
-FILE *wordbank_medium(void){
+char **wordbank_medium(void){
     FILE *fp = fopen("M.txt", "r");
     if(fp == NULL){
         printf("Word Bank is Missing\n");
     }
-    return fp;
+    int i = 0;
+    char s[51];
+    char **sentences = malloc(sizeof(char *) * 100);
+    while(fgets(s, sizeof(s), fp) != NULL){
+        sentences[i++] = strdup(s);
+    }
+    sentences[i] = NULL;
+    return sentences;
 }
-FILE *wordbank_hard(void){
+char **wordbank_hard(void){
     FILE *fp = fopen("H.txt", "r");
     if(fp == NULL){
         printf("Word Bank is Missing\n");
     }
-    return fp;
+    int i = 0;
+    char s[51];
+    char **sentences = malloc(sizeof(char *) * 100);
+    while(fgets(s, sizeof(s), fp) != NULL){
+        sentences[i++] = strdup(s);
+    }
+    sentences[i] = NULL;
+    return sentences;
 }
-FILE *wordbank_very_hard(void){
+char **wordbank_very_hard(void){
     FILE *fp = fopen("VH.txt", "r");
     if(fp == NULL){
         printf("Word Bank is Missing\n");
     }
-    return fp;
+    int i = 0;
+    char s[51];
+    char **sentences = malloc(sizeof(char *) * 100);
+    while(fgets(s, sizeof(s), fp) != NULL){
+        sentences[i++] = strdup(s);
+    }
+    sentences[i] = NULL;
+    return sentences;
 }
-FILE *bankkata_sangat_mudah(void){
+char **bankkata_sangat_mudah(void){
     FILE *fp = fopen("SM.txt", "r");
     if(fp == NULL){
         printf("Word Bank is Missing\n");
     }
-    return fp;
+    int i = 0;
+    char s[51];
+    char **sentences = malloc(sizeof(char *) * 100);
+    while(fgets(s, sizeof(s), fp) != NULL){
+        sentences[i++] = strdup(s);
+    }
+    sentences[i] = NULL;
+    return sentences;
 }
-FILE *bankkata_mudah(void){
+char **bankkata_mudah(void){
     FILE *fp = fopen("MD.txt", "r");
     if(fp == NULL){
         printf("Word Bank is Missing\n");
     }
-    return fp;
+    int i = 0;
+    char s[51];
+    char **sentences = malloc(sizeof(char *) * 100);
+    while(fgets(s, sizeof(s), fp) != NULL){
+        sentences[i++] = strdup(s);
+    }
+    sentences[i] = NULL;
+    return sentences;
 }
-FILE *bankkata_sedang(void){
+char **bankkata_sedang(void){
     FILE *fp = fopen("S.txt", "r");
     if(fp == NULL){
         printf("Word Bank is Missing\n");
     }
-    return fp;
+    int i = 0;
+    char s[51];
+    char **sentences = malloc(sizeof(char *) * 100);
+    while(fgets(s, sizeof(s), fp) != NULL){
+        sentences[i++] = strdup(s);
+    }
+    sentences[i] = NULL;
+    return sentences;
 }
-FILE *bankkata_susah(void){
+char **bankkata_susah(void){
     FILE *fp = fopen("SS.txt", "r");
     if(fp == NULL){
         printf("Word Bank is Missing\n");
     }
-    return fp;
+    int i = 0;
+    char s[51];
+    char **sentences = malloc(sizeof(char *) * 100);
+    while(fgets(s, sizeof(s), fp) != NULL){
+        sentences[i++] = strdup(s);
+    }
+    sentences[i] = NULL;
+    return sentences;
 }
-FILE *bankkata_sangat_susah(void){
+char **bankkata_sangat_susah(void){
     FILE *fp = fopen("SSS.txt", "r");
     if(fp == NULL){
         printf("Word Bank is Missing\n");
     }
-    return fp;
+    int i = 0;
+    char s[51];
+    char **sentences = malloc(sizeof(char *) * 100);
+    while(fgets(s, sizeof(s), fp) != NULL){
+        sentences[i++] = strdup(s);
+    }
+    sentences[i] = NULL;
+    return sentences;
 }

@@ -2,45 +2,99 @@
 #include <string.h>
 #include "language.h"
 
-void very_easy(char *lang){
-    if(strcmp(lang, "ENGLISH") == 0){
-        wordbank_very_easy();
-    }else {
-        bankkata_sangat_mudah();
+void proceedgame(char **sentences){
+    char gallows[7][70] ={
+        "    +-----\n"
+        "         |\n"
+        "         |\n"
+        "         |\n"
+        "         |\n",
+        "    +-----\n"
+        "    O    |\n"
+        "         |\n"
+        "         |\n"
+        "         |\n",
+        "    +-----\n"
+        "    O    |\n"
+        "    |    |\n"
+        "         |\n"
+        "         |\n",
+        "    +-----\n"
+        "    O    |\n"
+        "   /|    |\n"
+        "         |\n"
+        "         |\n",
+        "    +-----\n"
+        "    O    |\n"
+        "   /|\\   |\n"
+        "         |\n"
+        "         |\n",
+        "    +-----\n"
+        "    O    |\n"
+        "   /|\\   |\n"
+        "   /     |\n"
+        "         |\n",
+        "    +-----\n"
+        "    O    |\n"
+        "   /|\\   |\n"
+        "   / \\   |\n"
+        "         |\n"
+    };
+    for(int i = 0; i < 7; i++){
+        printf("%s", gallows[i]);
     }
-    proceedgame();
+    /*for(int i = 0; ; i++){
+        if(sentences[i] == NULL){
+            break;
+        }
+        printf("%s", sentences[i]);
+    }*/
+}
+
+void very_easy(char *lang){
+    char **sentences;
+    if(strcmp(lang, "ENGLISH") == 0){
+        sentences = wordbank_very_easy();
+    }else {
+        sentences = bankkata_sangat_mudah();
+    }
+    proceedgame(sentences);
 }
 void easy(char *lang){
+    char **sentences;
     if(strcmp(lang, "ENGLISH") == 0){
-        wordbank_easy();
+        sentences = wordbank_easy();
     }else {
-        bankkata_mudah();
+        sentences = bankkata_mudah();
     }
-    proceedgame();
+    proceedgame(sentences);
 }
 void medium(char *lang){
+    char **sentences;
     if(strcmp(lang, "ENGLISH") == 0){
-        wordbank_medium();
+        sentences = wordbank_medium();
     }else {
-        bankkata_sedang();
+        sentences = bankkata_sedang();
     }
-    proceedgame();
+    proceedgame(sentences);
 }
 void hard(char *lang){
+    char **sentences;
     if(strcmp(lang, "ENGLISH") == 0){
-        wordbank_hard();
+        sentences = wordbank_hard();
     }else {
-        bankkata_susah();
+        sentences = bankkata_susah();
     }
-    proceedgame();
+    proceedgame(sentences);
 }
 void very_hard(char *lang){
+    char **sentences;
     if(strcmp(lang, "ENGLISH") == 0){
-        wordbank_very_hard();
+        sentences = wordbank_very_hard();
     }else {
-        bankkata_sangat_susah();
+        sentences = bankkata_sangat_susah();
     }
-    proceedgame();
+    proceedgame(sentences);
 }
 
 void start(void){
