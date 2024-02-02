@@ -1,8 +1,2 @@
-CAT
-DOG
-GIRAFFE
-ELEPHANT
-OWL
-DWI
-ABIM
-DEO
+cat
+dog

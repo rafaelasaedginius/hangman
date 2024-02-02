@@ -4,6 +4,9 @@
 
 char *chooselang(void){
     char *lang = malloc(10);
+    puts("CHOOSE LANGUAGE:");
+    puts("ENGLISH");
+    puts("INDONESIAN");
     scanf("%s", lang);
     return lang;
 }

@@ -11,7 +11,8 @@ int main(){
         printf("     SCORE   \n");
         printf("  LEVEL EDITOR   \n");
         printf("     EXIT   \n");
-        scanf("%s", choice);
+        fgets(choice, sizeof choice, stdin);
+        choice[strcspn(choice, "\n")] = '\0';
 
         if(strcmp(choice, "START") == 0){
             start();
