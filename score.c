@@ -9,7 +9,7 @@ void score(void){
         fp = fopen(scorefile, "w+");
     }
     
-    char line[100];
+    char line[101];
     int i = 1;
     while (fgets(line, sizeof line, fp) != NULL) {
         printf("%4d. %s", i++, line);

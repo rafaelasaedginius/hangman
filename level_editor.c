@@ -18,7 +18,7 @@ static void very_easy(void) {
         return;
     }
     
-    char input[100] = {0};
+    char input[101] = {0};
     while (fgets(input, sizeof input, stdin) != NULL) {
         if (strcmp(input, ".\n") == 0) {
             break;
@@ -47,7 +47,7 @@ static void easy(void) {
         return;
     }
     
-    char input[100] = {0};
+    char input[101] = {0};
     while (fgets(input, sizeof input, stdin) != NULL) {
         if (strcmp(input, ".\n") == 0) {
             break;
@@ -76,7 +76,7 @@ static void medium(void) {
         return;
     }
     
-    char input[100] = {0};
+    char input[101] = {0};
     while (fgets(input, sizeof input, stdin) != NULL) {
         if (strcmp(input, ".\n") == 0) {
             break;
@@ -105,7 +105,7 @@ static void hard(void) {
         return;
     }
     
-    char input[100] = {0};
+    char input[101] = {0};
     while (fgets(input, sizeof input, stdin) != NULL) {
         if (strcmp(input, ".\n") == 0) {
             break;
@@ -134,7 +134,7 @@ static void very_hard(void) {
         return;
     }
     
-    char input[100] = {0};
+    char input[101] = {0};
     while (fgets(input, sizeof input, stdin) != NULL) {
         if (strcmp(input, ".\n") == 0) {
             break;
@@ -156,7 +156,7 @@ void level_editor(void){
     puts("**** HARD");
     puts("***** VERY HARD");
     
-    char choice[6];
+    char choice[100];
     fgets(choice, sizeof choice, stdin);
     choice[strcspn(choice, "\n")] = '\0';
 

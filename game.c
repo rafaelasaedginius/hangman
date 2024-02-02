@@ -1,8 +1,15 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
+#include <stdbool.h>
+#include "checker.h"
 #include "language.h"
 
+void hide_answer(char *copy, char *sentences);
+
 void proceedgame(char **sentences){
+    int salah = 0;
+    bool gameover = false;
     char gallows[7][70] ={
         "    +-----\n"
         "         |\n"
@@ -40,15 +47,34 @@ void proceedgame(char **sentences){
         "   / \\   |\n"
         "         |\n"
     };
-    for(int i = 0; i < 7; i++){
-        printf("%s", gallows[i]);
-    }
-    /*for(int i = 0; ; i++){
+    for(int i = 0; ; ){
+        char copy[101];
         if(sentences[i] == NULL){
             break;
         }
-        printf("%s", sentences[i]);
-    }*/
+        printf("%s", gallows[salah]);
+        hide_answer(copy, sentences[i]);
+        printf("%s\n", copy);
+        while(!check_answer(copy, sentences[i], &salah, &gameover)){
+            if(gameover){
+                break;
+            }
+        }
+        if(gameover){
+            printf("GAME OVER\n");
+        }
+        i++;
+    }
+}
+
+void hide_answer(char *copy, char *sentences){
+    int len = strlen(sentences);
+    strcpy(copy, sentences);
+    for(int j = 0; j < len; j++){
+        if(islower(copy[j])){
+            copy[j] = '_';
+        }
+    }
 }
 
 void very_easy(char *lang){
@@ -101,7 +127,8 @@ void start(void){
     char difficulty[6];
     printf("CHOOSE DIFFICULTY\n");
     printf("*\n**\n***\n****\n*****\n");
-    scanf("%s", difficulty);
+    fgets(difficulty, sizeof difficulty, stdin);
+    difficulty[strcspn(difficulty, "\n")] = '\0';
     if(strlen(difficulty) == 5){
         printf("VERY HARD!!\n");
         very_hard(chooselang());

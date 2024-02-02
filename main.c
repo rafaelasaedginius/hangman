@@ -4,7 +4,7 @@
 
 int main(){
 
-    char choice[16];
+    char choice[100];
     do {
         printf("   HANGMAN!!   \n");
         printf("     START   \n");

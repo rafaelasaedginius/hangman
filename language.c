@@ -3,11 +3,12 @@
 #include <stdlib.h>
 
 char *chooselang(void){
-    char *lang = malloc(10);
+    char *lang = malloc(101);
     puts("CHOOSE LANGUAGE:");
     puts("ENGLISH");
     puts("INDONESIAN");
-    scanf("%s", lang);
+    fgets(lang, 101, stdin);
+    lang[strcspn(lang, "\n")] = '\0';
     return lang;
 }
 char **wordbank_very_easy(void){
@@ -16,7 +17,7 @@ char **wordbank_very_easy(void){
         printf("Word Bank is Missing\n");
     }
     int i = 0;
-    char s[51];
+    char s[101];
     char **sentences = malloc(sizeof(char *) * 100);
     while(fgets(s, sizeof(s), fp) != NULL){
         sentences[i++] = strdup(s);
@@ -30,7 +31,7 @@ char **wordbank_easy(void){
         printf("Word Bank is Missing\n");
     }
     int i = 0;
-    char s[51];
+    char s[101];
     char **sentences = malloc(sizeof(char *) * 100);
     while(fgets(s, sizeof(s), fp) != NULL){
         sentences[i++] = strdup(s);
@@ -44,7 +45,7 @@ char **wordbank_medium(void){
         printf("Word Bank is Missing\n");
     }
     int i = 0;
-    char s[51];
+    char s[101];
     char **sentences = malloc(sizeof(char *) * 100);
     while(fgets(s, sizeof(s), fp) != NULL){
         sentences[i++] = strdup(s);
@@ -58,7 +59,7 @@ char **wordbank_hard(void){
         printf("Word Bank is Missing\n");
     }
     int i = 0;
-    char s[51];
+    char s[101];
     char **sentences = malloc(sizeof(char *) * 100);
     while(fgets(s, sizeof(s), fp) != NULL){
         sentences[i++] = strdup(s);
@@ -72,7 +73,7 @@ char **wordbank_very_hard(void){
         printf("Word Bank is Missing\n");
     }
     int i = 0;
-    char s[51];
+    char s[101];
     char **sentences = malloc(sizeof(char *) * 100);
     while(fgets(s, sizeof(s), fp) != NULL){
         sentences[i++] = strdup(s);
@@ -86,7 +87,7 @@ char **bankkata_sangat_mudah(void){
         printf("Word Bank is Missing\n");
     }
     int i = 0;
-    char s[51];
+    char s[101];
     char **sentences = malloc(sizeof(char *) * 100);
     while(fgets(s, sizeof(s), fp) != NULL){
         sentences[i++] = strdup(s);
@@ -100,7 +101,7 @@ char **bankkata_mudah(void){
         printf("Word Bank is Missing\n");
     }
     int i = 0;
-    char s[51];
+    char s[101];
     char **sentences = malloc(sizeof(char *) * 100);
     while(fgets(s, sizeof(s), fp) != NULL){
         sentences[i++] = strdup(s);
@@ -114,7 +115,7 @@ char **bankkata_sedang(void){
         printf("Word Bank is Missing\n");
     }
     int i = 0;
-    char s[51];
+    char s[101];
     char **sentences = malloc(sizeof(char *) * 100);
     while(fgets(s, sizeof(s), fp) != NULL){
         sentences[i++] = strdup(s);
@@ -128,7 +129,7 @@ char **bankkata_susah(void){
         printf("Word Bank is Missing\n");
     }
     int i = 0;
-    char s[51];
+    char s[101];
     char **sentences = malloc(sizeof(char *) * 100);
     while(fgets(s, sizeof(s), fp) != NULL){
         sentences[i++] = strdup(s);
@@ -142,7 +143,7 @@ char **bankkata_sangat_susah(void){
         printf("Word Bank is Missing\n");
     }
     int i = 0;
-    char s[51];
+    char s[101];
     char **sentences = malloc(sizeof(char *) * 100);
     while(fgets(s, sizeof(s), fp) != NULL){
         sentences[i++] = strdup(s);
