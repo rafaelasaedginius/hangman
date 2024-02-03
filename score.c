@@ -26,7 +26,7 @@ void addscore(void) {
     curScore += 50;
 }
 
-void savescore(void) {
+void savescore(char *lang, char *difficulty) {
     FILE *fp;
     char *scorefile = "scores.txt";
 
@@ -41,6 +41,6 @@ void savescore(void) {
     size_t ret = strftime(scoretime, sizeof(scoretime), "%c", tm);
     assert(ret);
     
-    fprintf(fp, "%s: %d\n", scoretime, curScore);
+    fprintf(fp, "%s: %s(%s) %d\n", scoretime, difficulty, lang, curScore);
     fclose(fp);
 }

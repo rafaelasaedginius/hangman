@@ -7,21 +7,21 @@ int main(){
     char choice[100];
     do {
         printf("   HANGMAN!!   \n");
-        printf("     START   \n");
-        printf("     SCORE   \n");
-        printf("  LEVEL EDITOR   \n");
-        printf("     EXIT   \n");
+        printf("    1.START   \n");
+        printf("    2.SCORE   \n");
+        printf(" 3.LEVEL EDITOR   \n");
+        printf("    4.EXIT   \n");
         fgets(choice, sizeof choice, stdin);
         choice[strcspn(choice, "\n")] = '\0';
 
-        if(strcmp(choice, "START") == 0){
+        if(strcasecmp(choice, "START") == 0 || strcmp(choice, "1") == 0){
             start();
-        }else if(strcmp(choice, "SCORE") == 0){
+        }else if(strcasecmp(choice, "SCORE") == 0 || strcmp(choice, "2") == 0){
             score();
-        }else if(strcmp(choice, "LEVEL EDITOR") == 0){
+        }else if(strcasecmp(choice, "LEVEL EDITOR") == 0 || strcmp(choice, "3") == 0){
             level_editor();
         }
 
-    } while(strcmp(choice, "EXIT") != 0);
+    } while(strcasecmp(choice, "EXIT") != 0 && strcmp(choice, "4") != 0);
         
 }

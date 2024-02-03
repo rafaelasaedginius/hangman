@@ -8,7 +8,7 @@
 
 void hide_answer(char *copy, char *sentences);
 
-void proceedgame(char **sentences){
+void proceedgame(char **sentences, char *difficulty, char *language){
     int salah = 0;
     curScore = 0;
     bool gameover = false;
@@ -87,7 +87,7 @@ void proceedgame(char **sentences){
         printf("YOUR TOTAL SCORE: %d\n", curScore);
     }
     
-    savescore(); // saves curScore to scores.txt
+    savescore(language, difficulty); // saves curScore to scores.txt
 }
 
 void hide_answer(char *copy, char *sentences){
@@ -100,50 +100,81 @@ void hide_answer(char *copy, char *sentences){
 }
 
 void very_easy(char *lang){
+    char *difficulty;
     char **sentences;
-    if(strcmp(lang, "ENGLISH") == 0){
+    if(strcasecmp(lang, "ENGLISH") == 0){
         sentences = wordbank_very_easy();
     }else {
         sentences = bankkata_sangat_mudah();
     }
-    proceedgame(sentences);
+    if(strcasecmp(lang, "ENGLISH") == 0){
+        difficulty = "VERY EASY";
+    }else {
+        difficulty = "SANGAT MUDAH";
+    }
+    proceedgame(sentences, difficulty, lang);
 }
 void easy(char *lang){
+    char *difficulty;
     char **sentences;
-    if(strcmp(lang, "ENGLISH") == 0){
+    if(strcasecmp(lang, "ENGLISH") == 0){
         sentences = wordbank_easy();
     }else {
         sentences = bankkata_mudah();
     }
-    proceedgame(sentences);
+    if(strcasecmp(lang, "ENGLISH") == 0){
+        difficulty = "EASY";
+    }else {
+        difficulty = "MUDAH";
+    }
+    proceedgame(sentences, difficulty, lang);
 }
 void medium(char *lang){
+    char *difficulty;
     char **sentences;
-    if(strcmp(lang, "ENGLISH") == 0){
+    if(strcasecmp(lang, "ENGLISH") == 0){
         sentences = wordbank_medium();
     }else {
         sentences = bankkata_sedang();
     }
-    proceedgame(sentences);
+    if(strcasecmp(lang, "ENGLISH") == 0){
+        difficulty = "MEDIUM";
+    }else {
+        difficulty = "SEDANG";
+    }
+    proceedgame(sentences, difficulty, lang);
 }
 void hard(char *lang){
+    char *difficulty;
     char **sentences;
-    if(strcmp(lang, "ENGLISH") == 0){
+    if(strcasecmp(lang, "ENGLISH") == 0){
         sentences = wordbank_hard();
     }else {
         sentences = bankkata_susah();
     }
-    proceedgame(sentences);
+    if(strcasecmp(lang, "ENGLISH") == 0){
+        difficulty = "HARD";
+    }else {
+        difficulty = "SUSAH";
+    }
+    proceedgame(sentences, difficulty, lang);
 }
 void very_hard(char *lang){
+    char *difficulty;
     char **sentences;
-    if(strcmp(lang, "ENGLISH") == 0){
+    if(strcasecmp(lang, "ENGLISH") == 0){
         sentences = wordbank_very_hard();
     }else {
         sentences = bankkata_sangat_susah();
     }
-    proceedgame(sentences);
+    if(strcasecmp(lang, "ENGLISH") == 0){
+        difficulty = "VERY HARD";
+    }else {
+        difficulty = "SANGAT SUSAH";
+    }
+    proceedgame(sentences, difficulty, lang);
 }
+
 
 void start(void){
     char difficulty[10];
