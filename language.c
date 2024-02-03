@@ -1,3 +1,5 @@
+#define _XOPEN_SOURCE 500 // for strdup on linux
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

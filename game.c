@@ -4,11 +4,13 @@
 #include <stdbool.h>
 #include "checker.h"
 #include "language.h"
+#include "score.h"
 
 void hide_answer(char *copy, char *sentences);
 
 void proceedgame(char **sentences){
     int salah = 0;
+    curScore = 0;
     bool gameover = false;
     char gallows[7][70] ={
         "    +-----\n"
@@ -64,12 +66,28 @@ void proceedgame(char **sentences){
         }
         while(!check_answer(copy, sentences[i], &salah, &gameover));
         if(gameover){
+            // last format to output gallows
+            printf("%s", gallows[salah]);
+            hide_answer(copy, sentences[i]);
+            printf("%s\n", copy);
+
             printf("GAME OVER\n");
+            printf("SCORE: %d\n", curScore);
+            
+            printf("Enter to go back to main menu");
+            char tmp[100];
+            fgets(tmp, sizeof tmp, stdin);
             break;
         }
         printf("YOU'RE ANSWER IS CORRECT : %s\n", sentences[i]);
         i++;
     }
+
+    if (!gameover) {
+        printf("YOUR TOTAL SCORE: %d\n", curScore);
+    }
+    
+    savescore(); // saves curScore to scores.txt
 }
 
 void hide_answer(char *copy, char *sentences){
