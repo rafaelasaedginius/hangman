@@ -6,9 +6,9 @@
 
 char *chooselang(void){
     char *lang = malloc(101);
-    puts("CHOOSE LANGUAGE:");
-    puts("ENGLISH");
-    puts("INDONESIAN");
+    puts("   CHOOSE LANGUAGE:   ");
+    puts("       ENGLISH    ");
+    puts("     INDONESIAN!   ");
     fgets(lang, 101, stdin);
     lang[strcspn(lang, "\n")] = '\0';
     return lang;
