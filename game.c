@@ -48,28 +48,32 @@ void proceedgame(char **sentences){
         "         |\n"
     };
     for(int i = 0; ; ){
-        char copy[101];
+        salah = 0;
+        static char copy[101];
         if(sentences[i] == NULL){
             break;
         }
-        printf("%s", gallows[salah]);
-        hide_answer(copy, sentences[i]);
-        printf("%s\n", copy);
-        while(!check_answer(copy, sentences[i], &salah, &gameover)){
+        strcpy(copy, sentences[i]);
+        do{
             if(gameover){
                 break;
             }
+            printf("%s", gallows[salah]);
+            hide_answer(copy, sentences[i]);
+            printf("%s\n", copy);
         }
+        while(!check_answer(copy, sentences[i], &salah, &gameover));
         if(gameover){
             printf("GAME OVER\n");
+            break;
         }
+        printf("YOU'RE ANSWER IS CORRECT : %s\n", sentences[i]);
         i++;
     }
 }
 
 void hide_answer(char *copy, char *sentences){
     int len = strlen(sentences);
-    strcpy(copy, sentences);
     for(int j = 0; j < len; j++){
         if(islower(copy[j])){
             copy[j] = '_';
@@ -124,7 +128,7 @@ void very_hard(char *lang){
 }
 
 void start(void){
-    char difficulty[6];
+    char difficulty[10];
     printf("CHOOSE DIFFICULTY\n");
     printf("*\n**\n***\n****\n*****\n");
     fgets(difficulty, sizeof difficulty, stdin);

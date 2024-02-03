@@ -9,7 +9,6 @@ bool check_answer(char *copy, char *sentences, int *salah, bool *gameover){
     //fgets(answer, sizeof answer, stdin);
     fgets(answer, sizeof answer, stdin);
     answer[strcspn(answer, "\n")] = '\0';
-    printf("answer = %s\n", answer);
     int len = strlen(copy);
     int flag = 0;
     for(int i = 0; i < len; i++){
@@ -24,9 +23,8 @@ bool check_answer(char *copy, char *sentences, int *salah, bool *gameover){
     if(*salah == 7){
         *gameover = true;
     }
-    printf("salah = %d\n", *salah);
     for(int i = 0; i < len; i++){
-        if(copy[i] == '_' || copy[i] == ' ' || islower(copy[i])){
+        if(copy[i] == '_' || islower(copy[i])){
             return false;
         }
     }
